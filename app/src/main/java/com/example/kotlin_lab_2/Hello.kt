@@ -47,7 +47,38 @@ fun anGi(){
     val thucAn = thucAn(ngay)
     println("Hôm nay $ngay tôi ăn $thucAn")
 }
-fun main(args: Array<String>) {
-    ngayAn()
-    anGi()
+fun swim(speed: String = "fast") {
+    println("swimming $speed")
+}
+fun updateDirty(dirty: Int, operation: (Int) -> Int): Int {
+    return operation(dirty)
+}
+//fun main(args: Array<String>) {
+//    ngayAn()
+//    anGi()
+//    swim()   // uses default speed
+//    swim("slow")   // positional argument
+//    swim(speed="turtle-like")   // named parameter
+//}
+fun main() {
+//    val decorations = listOf ("rock", "pagoda", "plastic plant", "alligator", "flowerpot")
+
+    // eager, creates a new list
+//    val eager = decorations.filter { it [0] == 'f' }
+//    val filtered = decorations.asSequence().filter { it[0] == 'f' }
+//    val newList = filtered.toList()
+//    val lazyMap = decorations.asSequence().map {
+//        println("access: $it")
+//        it
+//    }
+//    println("eager: $filtered")
+//    println("new list: $newList")
+//    println("lazy: $lazyMap")
+//    println("-----")
+//    println("first: ${lazyMap.first()}")
+//    println("-----")
+//    println("all: ${lazyMap.toList()}")
+    var dirtyLevel = 19
+    dirtyLevel = updateDirty(dirtyLevel) { dirtyLevel -> dirtyLevel + 23}
+    println(dirtyLevel)
 }
